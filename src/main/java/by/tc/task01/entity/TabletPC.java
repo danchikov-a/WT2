@@ -1,5 +1,11 @@
 package by.tc.task01.entity;
 
-public class TabletPC extends Appliance{
-	// you may add your own code here
+import by.tc.task01.enums.Color;
+
+public class TabletPC extends Appliance {
+    private int batteryCapacity;
+    private int displayInchs;
+    private int memoryROM;
+    private int flashMemoryCapacity;
+    private Color color;
 }

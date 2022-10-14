@@ -1,30 +1,27 @@
 package by.tc.task01.service.impl;
 
 import by.tc.task01.dao.ApplianceDAO;
-import by.tc.task01.dao.DAOFactory;
+import by.tc.task01.dao.impl.ApplianceDAOImpl;
 import by.tc.task01.entity.Appliance;
-import by.tc.task01.entity.criteria.Criteria;
+import by.tc.task01.entity.Kettle;
 import by.tc.task01.service.ApplianceService;
-import by.tc.task01.service.validation.Validator;
 
-public class ApplianceServiceImpl implements ApplianceService{
+import java.util.List;
 
-	@Override
-	public Appliance find(Criteria criteria) {
-		if (!Validator.criteriaValidator(criteria)) {
-			return null;
-		}
-		
-		DAOFactory factory = DAOFactory.getInstance();
-		ApplianceDAO applianceDAO = factory.getApplianceDAO();
-		
-		Appliance appliance = applianceDAO.find(criteria);
-		
-		// you may add your own code here
-		
-		return appliance;
-	}
+public class ApplianceServiceImpl implements ApplianceService {
+    private final ApplianceDAO applianceDAO;
 
+    public ApplianceServiceImpl() {
+        this.applianceDAO = new ApplianceDAOImpl();
+    }
+
+    @Override
+    public Appliance getCheapestAppliance() {
+        return applianceDAO.findCheapestAppliance();
+    }
+
+    @Override
+    public List<Kettle> getKettles() {
+        return applianceDAO.findKettles();
+    }
 }
-
-//you may add your own new classes

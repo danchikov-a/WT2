@@ -1,15 +1,14 @@
-package by.tc.task01.main;
+package by.tc.task01;
 
-import static by.tc.task01.entity.criteria.SearchCriteria.*;
-
-import by.tc.task01.entity.Appliance;
-import by.tc.task01.entity.criteria.Criteria;
-import by.tc.task01.service.ApplianceService;
-import by.tc.task01.service.ServiceFactory;
+import by.tc.task01.dao.ApplianceDAO;
+import by.tc.task01.dao.impl.ApplianceDAOImpl;
 
 public class Main {
 
 	public static void main(String[] args) {
+		ApplianceDAO applianceDAO = new ApplianceDAOImpl();
+		System.out.println(applianceDAO.findCheapestAppliance());
+		/*
 		Appliance appliance;
 
 		ServiceFactory factory = ServiceFactory.getInstance();
@@ -44,7 +43,6 @@ public class Main {
 		appliance = service.find(criteriaOven);// find(Object...obj)
 
 		PrintApplianceInfo.print(appliance);
-
+*/
 	}
-
 }
